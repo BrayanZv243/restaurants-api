@@ -1,0 +1,156 @@
+{
+	"info": {
+		"_postman_id": "c04dadba-a1d2-43fb-91be-ce59eaf71d37",
+		"name": "Restaurants - Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25798213"
+	},
+	"item": [
+		{
+			"name": "Restaurant",
+			"item": [
+				{
+					"name": "GET All Restaurants",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/restaurant",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"restaurant"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Restaurant by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/restaurant/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"restaurant",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "7f47e9ed-d6d7-41b1-8a62-fd7364f40f7f"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Restaurant",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"rating\": 4,\r\n  \"name\": \"Delicious Pizza\",\r\n  \"site\": \"http://deliciouspizza.com\",\r\n  \"email\": \"info@deliciouspizza.com\",\r\n  \"phone\": \"+1234567890\",\r\n  \"street\": \"123 Main Street\",\r\n  \"city\": \"New York\",\r\n  \"state\": \"NY\",\r\n  \"lat\": 40.7128,\r\n  \"lng\": -74.006\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/restaurant",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"restaurant"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Restaurant by ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"rating\": 2,\r\n  \"name\": \"Delicious Pizza 2\",\r\n  \"site\": \"http://deliciouspizza2.com\",\r\n  \"email\": \"info@deliciouspizza2.com\",\r\n  \"phone\": \"+12345678902\",\r\n  \"street\": \"123 Main Street2\",\r\n  \"city\": \"New York2\",\r\n  \"state\": \"NY2\",\r\n  \"lat\": 40.71282,\r\n  \"lng\": -74.0062\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/restaurant/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"restaurant",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "7f47e9ed-d6d7-41b1-8a62-fd7364f40f7f"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Restaurant by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/restaurant/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"restaurant",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "7f47e9ed-d6d7-41b1-8a62-fd7364f40f7f"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

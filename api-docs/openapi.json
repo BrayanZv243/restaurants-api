@@ -1,0 +1,168 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Restaurants - Collection",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Restaurant"
+    }
+  ],
+  "paths": {
+    "/restaurant": {
+      "get": {
+        "tags": [
+          "Restaurant"
+        ],
+        "summary": "GET All Restaurants",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Restaurant"
+        ],
+        "summary": "Add Restaurant",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "rating": 4,
+                  "name": "Delicious Pizza",
+                  "site": "http://deliciouspizza.com",
+                  "email": "info@deliciouspizza.com",
+                  "phone": "+1234567890",
+                  "street": "123 Main Street",
+                  "city": "New York",
+                  "state": "NY",
+                  "lat": 40.7128,
+                  "lng": -74.006
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/restaurant/{id}": {
+      "get": {
+        "tags": [
+          "Restaurant"
+        ],
+        "summary": "GET Restaurant by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "example": "7f47e9ed-d6d7-41b1-8a62-fd7364f40f7f"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Restaurant"
+        ],
+        "summary": "Update Restaurant by ID",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "rating": 2,
+                  "name": "Delicious Pizza 2",
+                  "site": "http://deliciouspizza2.com",
+                  "email": "info@deliciouspizza2.com",
+                  "phone": "+12345678902",
+                  "street": "123 Main Street2",
+                  "city": "New York2",
+                  "state": "NY2",
+                  "lat": 40.71282,
+                  "lng": -74.0062
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "example": "7f47e9ed-d6d7-41b1-8a62-fd7364f40f7f"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Restaurant"
+        ],
+        "summary": "Delete Restaurant by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "example": "7f47e9ed-d6d7-41b1-8a62-fd7364f40f7f"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    }
+  }
+}
