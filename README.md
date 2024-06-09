@@ -1,4 +1,4 @@
-Restaurants API RESTful built with ExpressJS, NodeJS and MongoDB.
+Restaurants API RESTful built with ExpressJS, NodeJS and MongoDB using architecture MVC.
 
 How to run this API.
 
