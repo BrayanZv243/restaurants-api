@@ -114,7 +114,7 @@ class RestaurantDAO {
             const lng = parseFloat(longitude);
             const radiusInMeters = parseFloat(radius);
 
-            const radiusInDegrees = radiusInMeters / 111000; // Approximate number of meters in one degree of latitude
+            const radiusInDegrees = radiusInMeters / 111111; // Approximate number of meters in one degree of latitude
 
             // Perform query to find restaurants within the radial distance
             const restaurantsWithinRadius = await Restaurant.find({
