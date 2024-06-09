@@ -36,7 +36,6 @@
 							{
 								"key": "",
 								"value": "",
-								"type": "text",
 								"disabled": true
 							}
 						],
@@ -144,6 +143,40 @@
 								{
 									"key": "id",
 									"value": "7f47e9ed-d6d7-41b1-8a62-fd7364f40f7f"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Statistics Circle",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/restaurant/statistics?latitude=19.43790428&longitude=-99.1270471&radius=150",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"restaurant",
+								"statistics"
+							],
+							"query": [
+								{
+									"key": "latitude",
+									"value": "19.43790428"
+								},
+								{
+									"key": "longitude",
+									"value": "-99.1270471"
+								},
+								{
+									"key": "radius",
+									"value": "150"
 								}
 							]
 						}

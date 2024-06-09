@@ -4,6 +4,14 @@ const router = express.Router();
 // Controllers.
 const RestaurantController = require("../controllers/RestaurantsController");
 
+// It receives a latitude and a longitude as parameters,
+// which correspond to the center of a circle,
+// and a third parameter that corresponds to a radius in METERS.
+router.get(
+    "/restaurant/statistics",
+    RestaurantController.getCountAvgAndStdOfRestaurantsInTheCircle
+);
+
 // Get all restaurants.
 router.get("/restaurant", RestaurantController.getAllRestaurants);
 

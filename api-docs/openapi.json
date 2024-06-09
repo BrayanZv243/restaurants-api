@@ -163,6 +163,48 @@
           }
         }
       }
+    },
+    "/restaurant/statistics": {
+      "get": {
+        "tags": [
+          "Restaurant"
+        ],
+        "summary": "Statistics Circle",
+        "parameters": [
+          {
+            "name": "latitude",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "example": "19.43790428"
+          },
+          {
+            "name": "longitude",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "example": "-99.1270471"
+          },
+          {
+            "name": "radius",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "150"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
     }
   }
 }

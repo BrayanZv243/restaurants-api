@@ -78,6 +78,24 @@ class RestaurantController {
             }
         }
     }
+
+    // Statistics Restaurant
+    static async getCountAvgAndStdOfRestaurantsInTheCircle(req, res) {
+        try {
+            const { latitude, longitude, radius } = req.query;
+
+            const restaurants =
+                await RestaurantDAO.getCountAvgAndStdOfRestaurantsInTheCircle(
+                    latitude,
+                    longitude,
+                    radius
+                );
+
+            res.status(200).json(restaurants);
+        } catch (error) {
+            return res.status(500).json({ error });
+        }
+    }
 }
 
 module.exports = RestaurantController;

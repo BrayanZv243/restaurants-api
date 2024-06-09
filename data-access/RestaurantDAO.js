@@ -93,6 +93,65 @@ class RestaurantDAO {
             throw error.message;
         }
     }
+
+    /**
+     * This method calculates the count, average rating, and
+     * standard deviation of restaurants within a given circle defined by
+     * latitude, longitude, and radius.
+     * @param {number} latitude - The latitude of the center of the circle.
+     * @param {number} longitude - The longitude of the center of the circle.
+     * @param {number} radius - The radius of the circle in meters.
+     * @returns {Object} An object containing the count of restaurants,
+     * average rating, and standard deviation.
+     */
+    static async getCountAvgAndStdOfRestaurantsInTheCircle(
+        latitude,
+        longitude,
+        radius
+    ) {
+        try {
+            const lat = parseFloat(latitude);
+            const lng = parseFloat(longitude);
+            const radiusInMeters = parseFloat(radius);
+
+            const radiusInDegrees = radiusInMeters / 111000; // Approximate number of meters in one degree of latitude
+
+            // Perform query to find restaurants within the radial distance
+            const restaurantsWithinRadius = await Restaurant.find({
+                lat: {
+                    $gt: lat - radiusInDegrees,
+                    $lt: lat + radiusInDegrees,
+                },
+                lng: {
+                    $gt: lng - radiusInDegrees,
+                    $lt: lng + radiusInDegrees,
+                },
+            });
+            // Calculate count, average rating, and standard deviation
+            const count = restaurantsWithinRadius.length;
+
+            // Extract ratings of restaurants within the circle
+            const ratings = restaurantsWithinRadius.map(
+                (restaurant) => restaurant.rating
+            );
+
+            // Calculate the average rating
+            const avg =
+                ratings.reduce((acc, rating) => acc + rating, 0) / count;
+
+            // Calculate the standard deviation
+            const std = Math.sqrt(
+                ratings.reduce(
+                    (acc, rating) => acc + Math.pow(rating - avg, 2),
+                    0
+                ) / count
+            );
+
+            return { count, avg, std }; // Return count, average rating, and standard deviation
+        } catch (error) {
+            throw error.message; // Throw an error if there's any exception
+        }
+    }
 }
 
 module.exports = { RestaurantDAO };
